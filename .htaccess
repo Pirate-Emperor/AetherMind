@@ -1,0 +1,13 @@
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION BEGIN
+<IfModule Litespeed>
+</IfModule>
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION END
+
+# ProxyPass / http://0.0.0.0:8601/
+RewriteEngine on
+RewriteCond %{HTTP:Upgrade} websocket [NC]
+RewriteCond %{HTTP:Connection} upgrade [NC]
+RewriteRule ^/?(.*) "ws://0.0.0.0:8601/$1" [P,L]
+
+RewriteCond %{HTTP:Upgrade} !=websocket [NC]
+RewriteRule ^(.*)$ http://0.0.0.0:8601/$1 [P,L]
