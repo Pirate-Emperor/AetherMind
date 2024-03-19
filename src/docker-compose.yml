@@ -1,0 +1,30 @@
+version: '3.4'
+services:
+  # db:
+  #   container_name: db
+  #   image: mysql
+  #   command: --default-authentication-plugin=caching_sha2_password
+  #   restart: always
+  #   env_file:
+  #     - .env
+  #   ports:
+  #     - 3306:3306
+  #   volumes:
+  #     - ./mysql_data:/var/lib/mysql
+
+  web:
+    container_name: aether-mind
+    build: .
+    volumes:
+      - .:/app/AetherMind
+    ports:
+      - 8601:8601
+    # network_mode: "host"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      - HOST=0.0.0.0
+    # depends_on:
+    #   - db
+    # env_file:
+    #   - .env
