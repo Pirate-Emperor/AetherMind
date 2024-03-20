@@ -1,0 +1,14 @@
+{
+    "name": "websocket-http-proxy",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+        "start": "node main.js"
+    },
+    "dependencies": {
+        "http-proxy": "^1.18.1",
+        "websocket-http-proxy": "file:",
+        "ws": "^7.4.6"
+    }
+}
